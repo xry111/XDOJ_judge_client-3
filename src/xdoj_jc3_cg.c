@@ -61,4 +61,4 @@ int xdoj_jc3_cg_write_value(const char* path, int64_t value, const char* mode)
 const char* XDOJ_JC3_CG_TASK = CG "/cgroup.procs";
 const char* XDOJ_JC3_CG_MEM_LIMIT_B = CG "/memory.limit_in_bytes";
 const char* XDOJ_JC3_CG_MEMSW_LIMIT_B = CG "/memory.memsw.limit_in_bytes";
-const char* XDOJ_JC3_CG_MEMSW_USAGE_B = CG "/memory.memsw.usage_in_bytes";
+const char* XDOJ_JC3_CG_MEMSW_USAGE_B = CG "/memory.memsw.max_usage_in_bytes";
