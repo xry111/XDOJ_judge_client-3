@@ -19,10 +19,13 @@ CFLAGS += -fPIC -Iinclude `pkg-config --cflags libseccomp`
 export CC CCLD CFLAGS LDFLAGS LIBNAME LIB
 
 EXE = xdoj_judge_client3
+SRC = $(wildcard *.c)
+DEP = $(patsubst %.c, %.dep, $(SRC))
+OBJ = $(patsubst %.c, %.o, $(SRC))
 
 all : $(EXE)
 
-$(EXE) : main.c include/xdoj_jc3_toplev.h recursive_lib
+$(EXE) : $(OBJ) recursive_lib
 	$(CCLD) $(LDFLAGS) -o $@ $< -L./src -l$(LIBNAME)
 
 .PHONY : recursive_lib
