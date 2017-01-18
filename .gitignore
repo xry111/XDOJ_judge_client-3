@@ -27,7 +27,11 @@
 *.i*86
 *.x86_64
 *.hex
+xdoj_judge_client3
 
 # Debug files
 *.dSYM/
 *.su
+
+# Dependencies
+*.dep
