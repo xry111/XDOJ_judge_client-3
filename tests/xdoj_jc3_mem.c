@@ -25,10 +25,12 @@ along with XDOJ Judge Client v3; see the file LICENSE.  If not see
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "xdoj_jc3_mem.h"
+
 int main()
 {
-	pid_t pid;
-	if (pid = fork()) {
+	pid_t pid = fork();
+	if (pid) {
 		int status;
 		intptr_t usage;
 

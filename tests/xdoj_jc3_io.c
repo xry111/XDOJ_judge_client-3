@@ -24,6 +24,8 @@ int main(int argc, char **argv)
 {
 	int val;
 
+	(void) argc;
+
 	if (xdoj_jc3_io_fprintf(argv[1], "%d", 20170107) < 0) {
 		perror("io_fprintf");
 		return 1;
