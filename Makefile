@@ -1,22 +1,12 @@
-# configs
-
-CC ?= gcc
-CCLD ?= $(CC)
-CFLAGS ?= -std=c99 -O2 -Wall -Wextra -Wconversion -Wformat=2
-export PKG_CONFIG_PATH ?= /usr/lib64/pkgconfig
-export CG_MOUNT ?= /sys/fs/cgroup/memory
-
-# end configs
+include config.mak
 
 LIBNAME = xdojjc3
 LIB = lib$(LIBNAME).so
 
-SRC = $(wildcard src/*.c)
+LDFLAGS += `$(PKG_CONFIG) --libs libseccomp`
+CFLAGS += -fPIC -Iinclude `$(PKG_CONFIG) --cflags libseccomp`
 
-LDFLAGS += `pkg-config --libs libseccomp`
-CFLAGS += -fPIC -Iinclude `pkg-config --cflags libseccomp`
-
-export CC CCLD CFLAGS LDFLAGS LIBNAME LIB
+export CC CCLD CFLAGS LDFLAGS LIBNAME LIB PKG_CONFIG_PATH CG_MOUNT
 
 EXE = xdoj_judge_client3
 SRC = $(wildcard *.c)
