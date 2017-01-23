@@ -27,7 +27,7 @@ along with XDOJ Judge Client v3; see the file LICENSE.  If not see
 
 #include "xdoj_jc3_mem.h"
 
-int main()
+int main(void)
 {
 	pid_t pid = fork();
 	if (pid) {
