@@ -60,7 +60,7 @@ extern int xdoj_jc3_mem_setlimit(pid_t pid, intptr_t limit_b)
 	return 0;
 }
 
-extern intptr_t xdoj_jc3_mem_getusage_b()
+extern intptr_t xdoj_jc3_mem_getusage_b(void)
 {
 	intptr_t ret;
 

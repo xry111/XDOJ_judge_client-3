@@ -21,4 +21,4 @@ along with XDOJ Judge Client v3; see the file LICENSE.  If not see
 #include <sys/types.h>
 
 extern int xdoj_jc3_mem_setlimit(pid_t pid, intptr_t limit_b);
-extern intptr_t xdoj_jc3_mem_getusage_b();
+extern intptr_t xdoj_jc3_mem_getusage_b(void);
