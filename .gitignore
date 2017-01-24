@@ -35,3 +35,7 @@ xdoj_judge_client3
 
 # Dependencies
 *.dep
+
+# VIM swap and backup files
+*.swp
+*~
