@@ -1,7 +1,7 @@
 lib : $(LIB)
 
 SRC = $(wildcard *.c)
-OBJ = $(patsubst %.c, %.o, $(SRC))
+OBJ = $(patsubst %.c, %.o, $(SRC)) xdoj_jc3_security_code.o
 DEP = $(patsubst %.c, %.dep, $(SRC))
 
 CFLAGS += -I../include
@@ -16,11 +16,12 @@ $(LIB) : $(OBJ)
 
 sinclude $(DEP)
 
-.PHONY: xdoj_jc3_security_code.h
-xdoj_jc3_security_code.h :
+.PHONY: xdoj_jc3_security_code.o
+xdoj_jc3_security_code.o :
 	head -c 8 /dev/urandom | hexdump -e "\"%x\"" | \
-	sed 's/.*/#define XDOJ_JC3_SECURITY_CODE 0x&ULL\n/' > $@
+	sed 's/.*/#include "xdoj_jc3_security_code.h"\nconst uint64_t xdoj_jc3_security_code = 0x&ULL;\n/' | \
+	$(CC) -x c $(CFLAGS) - -c -o $@
 
 .PHONY : clean
 clean:
-	$(RM) $(LIB) $(OBJ) $(DEP) xdoj_jc3_security_code.h
+	$(RM) $(LIB) $(OBJ) $(DEP)
